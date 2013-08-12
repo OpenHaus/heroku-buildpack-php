@@ -81,14 +81,15 @@ can be downloaded by the build pack (see the URIs in `compile`).
     popd
 
     # Take care of vendoring PHP.
-    php_version=5.3.27
+    # php_version=5.3.27
+    php_version=5.4.17
     php_dirname=php-$php_version
     php_archive_name=$php_dirname.tar.bz2
 
     # Download PHP if necessary.
     if [ ! -f $php_archive_name ]
     then
-        curl -Lo $php_archive_name http://us1.php.net/get/php-5.3.27.tar.bz2/from/www.php.net/mirror
+        curl -Lo $php_archive_name http://us1.php.net/get/php-$php_version.tar.bz2/from/www.php.net/mirror
     fi
 
     # Clean and extract PHP.
@@ -118,11 +119,11 @@ can be downloaded by the build pack (see the URIs in `compile`).
     export PATH=/app/php/bin:$PATH
     /app/php/bin/pecl channel-update pecl.php.net
 
-    # Use defaults for apc build prompts.
-    yes '' | /app/php/bin/pecl install apc
-
     # Use defaults for redis build prompts.
     yes '' | /app/php/bin/pecl install redis
+
+    # Use defaults for apc build prompts.
+    yes '' | /app/php/bin/pecl install apc
 
     # Sanitize default cgi-bin to rid oneself of Apache sample
     # programs.
