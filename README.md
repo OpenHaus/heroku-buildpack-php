@@ -121,7 +121,7 @@ can be downloaded by the build pack (see the URIs in `compile`).
     # Use defaults for apc build prompts.
     yes '' | /app/php/bin/pecl install apc
 
-    # Use defaults for apc build prompts.
+    # Use defaults for redis build prompts.
     yes '' | /app/php/bin/pecl install redis
 
     # Sanitize default cgi-bin to rid oneself of Apache sample
